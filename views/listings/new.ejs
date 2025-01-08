@@ -1,0 +1,37 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3 style="color: #ff5733; font-weight: bold; font-size: 2.5rem;">Create new listing :</h3><br>
+            <form method="post" action="/listings">
+                <div class="mb-3">
+                    <label for="title" class="form-label" style="font-weight: bold; font-size: 1.3rem;">Title :</label>
+                    <input name="listing[title]" class="form-control" placeholder="Enter catchy title" type="text" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label" style="font-weight: bold; font-size: 1.3rem;">Description :</label>
+                    <textarea name="listing[description]" class="form-control" placeholder="enter description" type="text" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label"  style="font-weight: bold; font-size: 1.3rem;">Image-Link :</label>
+                    <input name="listing[image]" class="form-control" placeholder="enter image URl/link" type="text" />
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-4">
+                        <label for="price" class="form-label"  style="font-weight: bold; font-size: 1.3rem;">Price :</label>
+                        <input name="listing[price]" class="form-control" placeholder="enter price" type="number" required />
+                    </div>
+                    <div class="mb-3 col-8">
+                        <label for="country" class="form-label"  style="font-weight: bold; font-size: 1.3rem;">Country :</label>
+                        <input name="listing[country]"class="form-control" placeholder="enter country" type="text" required />
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label"  style="font-weight: bold; font-size: 1.3rem;">Location :</label>
+                    <input name="listing[location]" class="form-control" placeholder="enter location" type="text" required />
+                </div><br>
+                <button class="btn btn-dark" style="background-color: #ff5733; border: none;">Add</button><br><br>
+            </form>
+        </div>
+    </div>
+</body>

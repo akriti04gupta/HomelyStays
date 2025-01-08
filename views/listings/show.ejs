@@ -1,0 +1,58 @@
+<% layout("/layouts/boilerplate") %>
+<body >
+    <div class="row mt-3">
+        <div class="col-8 offset-2">  
+        <h3 style="color: #ff5733;"><b>Details of the listings:</b></h3><br>
+        </div>
+
+    <div class="card col-lg-6 col-md-8 col-sm-10 mx-auto p-0 shadow-sm listing-card">
+        <img src="<%= listing.image%>" class="card-img-top show-img" alt="listing image" style="height: 20rem;"><br>
+        <div class="card-body">
+          <h5 class="card-title"><b><%= listing.title%></b></h5>
+        </div>
+        <ul>
+            <li> <%= listing.description %></li>
+            <li>&#8377; <%= listing.price %></li>
+            <li> <%= listing.location %>, <%= listing.country %></li>
+        </ul>
+        <div class="btntwo">
+            <form action="/listings/<%= listing._id %>/edit">
+                <button class="btn btn-dark" style="background-color: #ff5733; border: none;">Edit</button>
+            </form>
+            <br>
+            <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
+                <button class="btn btn-dark">Delete</button>
+            </form>
+            <form action="/listings/<%= listing._id %>/review">
+                <button class="btn btn-dark" style="background-color: #ff5733; border: none;">Add Review</button>
+            </form>
+            <br>
+        </div>
+        <hr>
+        <div>
+            <h5 style="font-weight: bold;"><b>All Reviews :</b></h5>
+            <div class="row">
+                <% for(review of listing.reviews)
+                { %>
+                    <div class="card border-info col-5 lg-4 col-md-5col-sm-8 mx-2 md-3 shadow-sm ms-2 mb-3" style="max-width: 18rem;">
+                        <div class="card-header"><b><%= review.user ? review.user.username : "Anonymous" %></b></div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <% for (let i = 0; i < review.rating; i++) 
+                                { %>
+                                    &#9733; 
+                                <% } %>
+                                <% for (let i = review.rating; i < 5; i++) { %>
+                                &#9734; 
+                                <% } %></h5>
+                            <p class="card-text"><%= review.comment %></p><br>
+                        </div>
+                        <form class="mb-3" method="post" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                            <button class="btn btn-sm btn-dark">Delete</button>
+                        </form>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>

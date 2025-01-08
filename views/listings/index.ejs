@@ -1,0 +1,109 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <!-- <h3>All listings</h3> -->
+    <!-- <form method="get" action="/listings/new">
+        <button>Create new listing</button>
+    </form> -->
+    <style>
+      #filters{
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .filter{
+        text-align: center;
+        margin-right: 1.5rem;
+        margin-top: 1.3em;
+        opacity: 0.8;
+        cursor: pointer;
+      }
+      .filter:hover{
+        opacity: 1;
+      }
+      .filter p{
+        font-size: 0.8rem;
+      }
+    </style>
+    <div id="filters">
+      <div class="filter">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <p>Trending</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <p>Rooms</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-regular fa-snowflake"></i></div>
+        <p>Arctic</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-utensils"></i></div>
+        <p>Dining</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-key"></i></div>
+        <p>New</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-ticket"></i></div>
+        <p>Coupons</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <p>Rooms</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-music"></i></div>
+        <p>Music</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-wifi"></i></div>
+        <p>Wifi</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-wheelchair"></i></div>
+        <p>Wheelchair</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-person-swimming"></i></div>
+        <p>Pool</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-paw"></i></div>
+        <p>Pet service</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-champagne-glasses"></i></div>
+        <p>Bars</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-car"></i></div>
+        <p>Parking</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-hand-holding-medical"></i></div>
+        <p>Medical-service</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-taxi"></i></div>
+        <p>Taxi</p>
+      </div>
+    </div>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% for(let listing of allListings)
+        { %>
+    <div class="card col listing-card">
+        <img src="<%= listing.image%>" class="card-img-top" alt="listing image" style="height: 20rem;"><br>
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <h5 class="card-title"><b><%= listing.title%></b></h5>
+          <p class="card-text">
+            <%= listing.description %><br><br>
+            <b><%= listing.location %>,<%= listing.country %></b>
+            </p>
+          <a href="/listings/<%= listing._id %>" class="btn btn-primary" id="showbtn" style="background-color: #ff5733; border: none;">Show details</a>
+        </div>
+      </div>
+      <% } %>
+    </div>
+</body>

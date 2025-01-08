@@ -1,0 +1,21 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row mt-2">
+        <div class="col-6 offset-3">
+            <h5 style="color: grey;">Already a user ?</h3>
+            <h3 style="color: #ff5733;">Sign In  :</h3><br>
+            <form method="post" action="/signin">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username :</label>
+                    <input name="username" class="form-control" type="text" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password :</label>
+                    <input name="password" class="form-control" placeholder="enter a strong password" type="password" />
+                </div>
+                <br>
+                <button class="btn btn-success" style="background-color: #ff5733; border: none;">Sign-in</button><br><br>
+            </form>
+        </div>
+    </div>
+</body>

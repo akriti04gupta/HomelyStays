@@ -1,0 +1,22 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3 style="color: #ff5733;">Leave a Review :</h3><br>
+            <form method="post" action="/listings/<%= listing._id %>/review">
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Rating :</label>
+                    <input type="range" name="review[rating]" min="1" max="5" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Add a comment :</label>
+                    <textarea name="review[comment]" class="form-control" placeholder="add a comment" type="text" required></textarea>
+                </div>
+                <input type="hidden" name="review[createdAt]" value="<%= new Date().toISOString() %>" />
+                <div class="mb-3 col-4">
+                    <button class="btn btn-dark sm" style="background-color: #ff5733; border: none; padding: 5px 15px; font-size: 14px;">Add</button><br><br>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
