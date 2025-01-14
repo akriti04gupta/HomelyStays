@@ -31,7 +31,7 @@ HomelyStays is a travel and listing website inspired by Airbnb, designed to prov
 
 ## 🚀 Hosting
 
-HomelyStays is hosted on **Render**, ensuring high availability and scalability for users. You can access the live application [here](https://render.com/).
+HomelyStays is hosted on **Render**, ensuring high availability and scalability for users. You can access the live application [here](https://homelystays.onrender.com/listings).
 
 ## ✨ Features
 
